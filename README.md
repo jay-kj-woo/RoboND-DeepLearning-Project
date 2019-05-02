@@ -206,3 +206,5 @@ print(final_score)
     
 # Conclusions and Future Work #
 In this project, Fully Convolutional Network has been designed to identify and locate the target hero from the scene. With the provided data, I was able to achieve a final score of 41.9%. To improve the score, we need more data of showing the target in different angles and sitances to train our model better. 
+
+Current FCN model only works with human objects, however, we can extend our model to detect any other object without changing the overall model structure. We simply need dataset which now masks the labels of other desired objects and retrain our model with these data. 
