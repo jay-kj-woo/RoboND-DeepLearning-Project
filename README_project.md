@@ -14,11 +14,11 @@ It does this by replacing CNN's fully connected layer with 1x1 convolutional net
 
 ![cnn image](./images/cnn.png)
 
-The general idea of CNN is to add the convolutional layers to squeeze the spatial dimensions and at the same time to increase the depth to find a general representation of the image. With the additional parameters added each layer, the goal is to learn the weights of these parameters to effectively classifies the objects. The classification occurs at the last flattend layer called fully connected layer. Because of this flattened layer, CNN works effectively for a question like 'is this a photo of hotdog?', however, due to its loss in spatial information during flattening, it doesn't help to answer a question for 'where in this photo is a hotdog?'. 
+The general idea of CNN is to add the convolutional layers to squeeze the spatial dimensions and at the same time to increase the depth to find a general representation of the image. With the additional parameters added each layer, the goal is to learn the weights of these parameters to effectively classifies the objects. The classification occurs at the last flattend layer called fully connected layer. Because of this flattened layer, CNN works effectively for a question like **'is this a photo of hotdog?'**, however, due to its loss in spatial information during flattening, it doesn't help to answer a question for **'where in this photo is a hotdog?'**. 
 
 ![hotdog](./images/hotdog.png)
 
-To answer the 'where is the hotdog?' question, we need to preserve the pixel location information. It turns out that we can acheive this by replacing the flattend fully connected layer with 1x1 convolutional layer to keep the output as a tensor. 
+To answer the **'where is the hotdog?'** question, we need to preserve the pixel location information. It turns out that we can acheive this by replacing the flattend fully connected layer with 1x1 convolutional layer to keep the output as a tensor. 
 At last, we use a series of upsampling transposed convolutional layers to retrieve the original dimension of the image. 
 
 ![fcn](./images/fcn.png)
@@ -206,9 +206,3 @@ print(final_score)
     
 # Conclusions and Future Work #
 In this project, Fully Convolutional Network has been designed to identify and locate the target hero from the scene. With the provided data, I was able to achieve a final score of 41.9%. To improve the score, we need more data of showing the target in different angles and sitances to train our model better. 
-
-```
-$ python follower.py my_amazing_model.h5
-```
-
-**Note:** If you'd like to see an overlay of the detected region on each camera frame from the drone, simply pass the `--pred_viz` parameter to `follower.py`
