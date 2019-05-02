@@ -23,7 +23,7 @@ At last, we use a series of upsampling transposed convolutional layers to retrie
 
 ![fcn](./images/fcn.png)
 
-Structurally, FCN comprises of encoder part and decoder part, with 1x1 convolutional layer in between them. The encoder part is to extract the features of images and the decoder up-scales the output of the encoder part to achieve the same dimension with the original input image. We can add as many layer as we want, however this would cause loss in information from downsampling. As remedies, pooling layers are added in the encoder blocks and skip connection techniques are used in decoding stage. 
+Structurally, FCN comprises of encoder part and decoder part, with 1x1 convolutional layer in between them. The encoder part is to extract the features of images and the decoder up-scales the output of the encoder part to achieve the same dimension with the original input image. We can add as many layer as we want, however this would cause loss in some information from downsampling. As remedies, skip connection techniques are used in decoding stage. Skip connection adds and interpolates the previous layer with the upsampled layer to preserve the original information as much as possible. By using this, we could reduce the loss in information and still be able to achieve segmentation. 
 
 ## FCN Model ## 
 The overall diagram of the FCN model is shown below. It consists of 3 encoder layers, 1 1x1 convolutional layer, and 3 decoder layers. The decoder layers are added with skip connections to enhance the segmentation. I chose 3 layers based on the final scores of 4 trials: 1 layer only, 2 layers, 3 layers, and 4 layers. The trials were done with all other hyperparameters unchanged.  
